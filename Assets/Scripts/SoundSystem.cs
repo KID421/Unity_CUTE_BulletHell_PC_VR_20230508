@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ­µ®Ä¨t²Î
+    /// éŸ³æ•ˆç³»çµ±
     /// </summary>
     [RequireComponent(typeof(AudioSource))]
     public class SoundSystem : MonoBehaviour
     {
-        #region ¸ê®Æ
+        #region è³‡æ–™
         public static SoundSystem instance;
 
-        [Header("­µ®Ä")]
+        [Header("éŸ³æ•ˆ")]
         public AudioClip soundFire;
         public AudioClip soundHurt;
         public AudioClip soundExplosion;
@@ -19,7 +19,7 @@ namespace KID
         private AudioSource aud;
         #endregion
 
-        #region ¨Æ¥ó
+        #region äº‹ä»¶
         private void Awake()
         {
             instance = this;
@@ -27,13 +27,13 @@ namespace KID
         }
         #endregion
 
-        #region ¤èªk
+        #region æ–¹æ³•
         /// <summary>
-        /// ¼½©ñ­µ®Ä
+        /// æ’­æ”¾éŸ³æ•ˆ
         /// </summary>
-        /// <param name="sound">­µ®Ä</param>
-        /// <param name="min">³Ì¤p­µ¶q</param>
-        /// <param name="max">³Ì¤j­µ¶q</param>
+        /// <param name="sound">éŸ³æ•ˆ</param>
+        /// <param name="min">æœ€å°éŸ³é‡</param>
+        /// <param name="max">æœ€å¤§éŸ³é‡</param>
         public void PlaySound(AudioClip sound, float min, float max)
         {
             float volume = Random.Range(min, max);

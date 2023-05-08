@@ -1,21 +1,29 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace KID
 {
     /// <summary>
-    /// ¶Â∂q®t≤Œ
+    /// Ë°ÄÈáèÁ≥ªÁµ±
     /// </summary>
     public class HealthSystem : MonoBehaviour
     {
-        [SerializeField, Header("¶Â∂q"), Range(0, 5000)]
+        [SerializeField, Header("Ë°ÄÈáè"), Range(0, 5000)]
         protected float hp;
-        [SerializeField, Header("∑|≥y¶®∂ÀÆ`™∫™´•Û¶W∫Ÿ")]
+        [SerializeField, Header("ÊúÉÈÄ†ÊàêÂÇ∑ÂÆ≥ÁöÑÁâ©‰ª∂ÂêçÁ®±")]
         private string nameGetDamage;
-        [SerializeField, Header("¶Â∂qπœ§˘")]
+        [SerializeField, Header("Ë°ÄÈáèÂúñÁâá")]
         private Image imgHealth;
+        [SerializeField, Header("Ê≠ª‰∫°‰∫ã‰ª∂")]
+        private UnityEvent onDead;
 
-        protected float maxHp => hp;
+        protected float maxHp;
+
+        protected virtual void Awake()
+        {
+            maxHp = hp;
+        }
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -23,13 +31,11 @@ namespace KID
         }
 
         /// <summary>
-        /// ®¸®Ï∂ÀÆ`
+        /// ÂèóÂà∞ÂÇ∑ÂÆ≥
         /// </summary>
-        /// <param name="damage">∂ÀÆ`</param>
+        /// <param name="damage">ÂÇ∑ÂÆ≥</param>
         protected virtual void GetDamage(Bullet bullet)
         {
-            print(1);
-
             hp -= bullet.damage;
             imgHealth.fillAmount = hp / maxHp;
 
@@ -37,11 +43,11 @@ namespace KID
         }
 
         /// <summary>
-        /// ¶∫§`
+        /// Ê≠ª‰∫°
         /// </summary>
         protected virtual void Dead()
         {
-
+            onDead?.Invoke();
         }
     }
 }

@@ -1,14 +1,14 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// §lºu
+    /// Â≠êÂΩà
     /// </summary>
     public class Bullet : MonoBehaviour
     {
         /// <summary>
-        /// ∂ÀÆ`≠»
+        /// ÂÇ∑ÂÆ≥ÂÄº
         /// </summary>
         public float damage;
 

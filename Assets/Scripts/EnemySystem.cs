@@ -1,38 +1,42 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¼Ä¤H¨t²Î
+    /// æ•µäººç³»çµ±
     /// </summary>
     public class EnemySystem : MonoBehaviour
     {
-        #region ¸ê®Æ
-        [SerializeField, Header("¤l¼u")]
+        #region è³‡æ–™
+        [SerializeField, Header("å­å½ˆ")]
         private GameObject prefabBullet;
-        [SerializeField, Header("³t«×"), Range(0, 5000)]
+        [SerializeField, Header("é€Ÿåº¦"), Range(0, 5000)]
         private float bulletSpeed;
-        [SerializeField, Header("¥Í¦¨¶¡¹j"), Range(0, 10)] 
+        [SerializeField, Header("ç”Ÿæˆé–“éš”"), Range(0, 10)] 
         private float bulletInterval;
-        [SerializeField, Header("¥Í¦¨¤l¼u¦ì¸m")]
+        [SerializeField, Header("ç”Ÿæˆå­å½ˆä½ç½®")]
         private Transform bulletSpawnPoint;
         #endregion
 
-        #region ¨Æ¥ó
+        #region äº‹ä»¶
         private void Awake()
         {
+        }
+
+        private void Start()
+        {
             InvokeRepeating("Fire", 0, bulletInterval);
-        } 
+        }
         #endregion
 
-        #region ¤èªk
+        #region æ–¹æ³•
         /// <summary>
-        /// µo®g¤l¼u
+        /// ç™¼å°„å­å½ˆ
         /// </summary>
         private void Fire()
         {
             AudioClip sound = SoundSystem.instance.soundFire;
-            SoundSystem.instance.PlaySound(sound, 0.7f, 1.2f);
+            SoundSystem.instance.PlaySound(sound, 0.2f, 0.3f);
 
             GameObject tempBullet = Instantiate(prefabBullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             tempBullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
