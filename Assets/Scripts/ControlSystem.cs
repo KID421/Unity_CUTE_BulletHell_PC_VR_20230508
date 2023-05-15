@@ -1,30 +1,30 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ±±¨î¨t²Î PC »P VR ª©¥»
+    /// æ§åˆ¶ç³»çµ± PC èˆ‡ VR ç‰ˆæœ¬
     /// </summary>
     public class ControlSystem : MonoBehaviour
     {
-        #region ¸ê®Æ
-        [SerializeField, Header("¤l¼u")]
+        #region è³‡æ–™
+        [SerializeField, Header("å­å½ˆ")]
         private GameObject prefabBullet;
-        [SerializeField, Header("³t«×"), Range(0, 5000)]
+        [SerializeField, Header("é€Ÿåº¦"), Range(0, 5000)]
         private float bulletSpeed;
-        [SerializeField, Header("¥Í¦¨¤l¼u¦ì¸m")]
+        [SerializeField, Header("ç”Ÿæˆå­å½ˆä½ç½®")]
         private Transform bulletSpawnPoint;
-        [Header("ÀË´ú VR ÀY²¯ÃÛ¤U°Ï°ì")]
+        [Header("æª¢æ¸¬ VR é ­ç›”è¹²ä¸‹å€åŸŸ")]
         [SerializeField] private Vector3 boxCheckVRHeadSize;
         [SerializeField] private Vector3 boxCheckVRHeadOffset;
-        [SerializeField, Header("­n°»´úªº¹Ï¼h")] private LayerMask layerHead;
+        [SerializeField, Header("è¦åµæ¸¬çš„åœ–å±¤")] private LayerMask layerHead;
 
         /// <summary>
-        /// ÃÛ¤U Y ¦ì¸m
+        /// è¹²ä¸‹ Y ä½ç½®
         /// </summary>
         private float crouchPosition = 0;
         /// <summary>
-        /// ­ì©l Y ¦ì¸m
+        /// åŸå§‹ Y ä½ç½®
         /// </summary>
         private float originalPosition = 1;
 
@@ -33,7 +33,7 @@ namespace KID
         private bool hasWeapon;
         #endregion
 
-        #region ¨Æ¥ó
+        #region äº‹ä»¶
         private void OnDrawGizmos()
         {
             Gizmos.color = new Color(1, 0.3f, 0.3f, 0.5f);
@@ -44,7 +44,7 @@ namespace KID
 
         private void Update()
         {
-            // PC ª©¥»
+            // PC ç‰ˆæœ¬
             if (Input.GetKeyDown(KeyCode.Mouse0) && !isCrouch) Fire();
             if (Input.GetKeyDown(KeyCode.LeftControl)) Crouch();
 
@@ -52,9 +52,9 @@ namespace KID
         }
         #endregion
 
-        #region ¤èªk
+        #region æ–¹æ³•
         /// <summary>
-        /// ¾Ö¦³ªZ¾¹
+        /// æ“æœ‰æ­¦å™¨
         /// </summary>
         public void HasWeapon()
         {
@@ -62,7 +62,7 @@ namespace KID
         }
 
         /// <summary>
-        /// µo®g¤l¼u
+        /// ç™¼å°„å­å½ˆ
         /// </summary>
         public void Fire()
         {
@@ -74,7 +74,7 @@ namespace KID
         }
 
         /// <summary>
-        /// ÃÛ¤U
+        /// è¹²ä¸‹
         /// </summary>
         private void Crouch()
         {
